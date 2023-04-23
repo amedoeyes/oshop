@@ -1,0 +1,75 @@
+@use "../styles/variables.scss" as *;
+
+.cartItems {
+	width: 100%;
+	padding: 2rem;
+	display: flex;
+	flex-direction: column;
+	gap: 2rem;
+	border-radius: 1rem;
+	box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
+
+	.cartItemsHeader {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		margin-bottom: 0.5rem;
+
+		.cartItemsTitle {
+			font-size: 1.5rem;
+			margin: 0;
+		}
+
+		.cartClearButton {
+			background-color: $secondary-100;
+			color: $primary-100;
+			width: 2rem;
+			height: 2rem;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			border: none;
+			border-radius: 100%;
+			cursor: pointer;
+
+			@media screen and (max-width: 768px) {
+				width: 2.5rem;
+				height: 2.5rem;
+			}
+		}
+	}
+
+	.cartItem {
+		display: flex;
+		justify-content: space-between;
+		gap: 1rem;
+
+		.cartItemWrapperLeft {
+			display: flex;
+			align-items: center;
+			gap: 1rem;
+
+			.cartItemImage {
+				width: 5rem;
+				height: 5rem;
+				border-radius: 0.5rem;
+				object-fit: cover;
+			}
+		}
+
+		.cartItemWrapperRight {
+			display: flex;
+			align-items: center;
+			gap: 1rem;
+
+			@media screen and (max-width: 768px) {
+				flex-direction: column;
+				align-items: start;
+			}
+		}
+
+		@media screen and (max-width: 768px) {
+			flex-direction: column;
+		}
+	}
+}

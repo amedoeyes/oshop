@@ -1,0 +1,72 @@
+@use "../styles/variables.scss" as *;
+
+.cartItemControls {
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+
+	.cartItemControlsSetQuantity {
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+
+		.cartItemControlsSetQuantityButton {
+			background-color: $secondary-100;
+			color: $primary-100;
+			width: 2rem;
+			height: 2rem;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			border: none;
+			border-radius: 100%;
+			cursor: pointer;
+
+			&:disabled {
+				cursor: not-allowed;
+				opacity: 0.5;
+			}
+		}
+
+		.cartItemControlsSetQuantityNumber {
+			font-size: 1.25rem;
+			font-weight: bold;
+		}
+
+		@media screen and (max-width: 768px) {
+			gap: 1rem;
+
+			.cartItemControlsSetQuantityButton {
+				width: 2.5rem;
+				height: 2.5rem;
+			}
+
+			.cartItemControlsSetQuantityNumber {
+				font-size: 1.5rem;
+			}
+		}
+	}
+
+	.cartItemControlsDeleteButton {
+		background-color: $secondary-100;
+		color: $primary-100;
+		width: 2rem;
+		height: 2rem;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		border: none;
+		border-radius: 100%;
+		cursor: pointer;
+
+		@media screen and (max-width: 768px) {
+			width: 2.5rem;
+			height: 2.5rem;
+		}
+	}
+
+	@media screen and (max-width: 768px) {
+		width: 100%;
+		justify-content: space-between;
+	}
+}

@@ -1,0 +1,72 @@
+@use "../styles/variables.scss" as *;
+
+.filterCategoryOptions {
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+
+	.filterCategoryOptionsTitle {
+		margin-top: 0;
+		margin-bottom: 1rem;
+	}
+
+	.filterCategoryOptionsCategory {
+		padding: 0.25rem;
+		display: flex;
+		flex-direction: column;
+		border-radius: 1rem;
+
+		.filterCategoryOptionsCategoryTitle {
+			margin-top: 0.5rem;
+			margin-bottom: 0.5rem;
+			cursor: pointer;
+		}
+
+		.filterCategoryOptionsSubcategories {
+			display: none;
+			flex-direction: column;
+			gap: 0.5rem;
+
+			&:has(input:checked) {
+				display: flex;
+			}
+
+			&.show {
+				display: flex;
+				animation: slide 0.25s ease;
+
+				@keyframes slide {
+					from {
+						opacity: 0;
+						transform: translateY(-5%);
+					}
+					to {
+						opacity: 1;
+						transform: translateY(0%);
+					}
+				}
+			}
+		}
+	}
+
+	.filterCategoryOption {
+		display: flex;
+		flex-direction: column;
+		border-radius: 100rem;
+
+		.filterCategoryOptionInput {
+			display: none;
+		}
+
+		.filterCategoryOptionLabel {
+			padding: 0.5rem;
+			border-radius: 100rem;
+			cursor: pointer;
+		}
+
+		.filterCategoryOptionInput:checked + .filterCategoryOptionLabel {
+			background-color: $primary-200;
+			color: $secondary-400;
+		}
+	}
+}

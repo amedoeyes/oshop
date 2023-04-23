@@ -1,0 +1,41 @@
+@use "../styles/variables.scss" as *;
+
+.filterPriceRange {
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+
+	.filterPriceRangeTitle {
+		margin-top: 1rem;
+		margin-bottom: 1rem;
+	}
+
+	.filterPriceRangeInputWrapper {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 0.5rem;
+
+		.filterPriceRangeInput {
+			width: 8rem;
+			padding: 0.5rem;
+			border-radius: 100rem;
+			border: $secondary-500 solid 0.01rem;
+			text-align: center;
+
+			@media screen and (max-width: 768px) {
+				width: 80%;
+			}
+		}
+	}
+
+	.filterPriceRangeButton {
+		background-color: $secondary-100;
+		color: $primary-100;
+		width: 100%;
+		padding: 0.7rem;
+		border-radius: 100rem;
+		border: none;
+		cursor: pointer;
+	}
+}

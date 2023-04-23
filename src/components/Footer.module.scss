@@ -1,0 +1,16 @@
+@use "../styles/variables";
+
+.footer {
+	background-color: variables.$primary-100;
+	width: 100%;
+	height: 5rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-top: auto;
+
+	svg {
+		width: 2rem;
+		height: 2rem;
+	}
+}

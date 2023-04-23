@@ -1,0 +1,32 @@
+@use "../styles/variables" as *;
+
+.productPriceInfo {
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+
+	.productPrice {
+		margin: 0;
+		display: flex;
+		flex-direction: column;
+
+		.productNewPrice {
+			font-size: 2.5rem;
+			font-weight: bold;
+		}
+
+		.productOldPrice {
+			font-size: 1rem;
+			text-decoration: line-through;
+		}
+	}
+
+	.productDiscount {
+		background-color: $secondary-100;
+		color: $primary-100;
+		padding: 0.25rem;
+		margin: 0;
+		font-size: 1.1rem;
+		border-radius: 100rem;
+	}
+}

@@ -1,0 +1,25 @@
+@use "normalize.css";
+@use "variables.scss";
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+body {
+	background-color: variables.$primary-100;
+	color: variables.$secondary-100;
+	font-family: variables.$font-family;
+}
+
+a {
+	text-decoration: none;
+	color: inherit;
+}
+
+#root {
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+}

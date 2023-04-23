@@ -1,0 +1,47 @@
+@use "../styles/variables.scss" as *;
+
+.productDetails {
+	.productCategory {
+		color: $secondary-400;
+		margin: 0;
+	}
+
+	.productTitle {
+		margin: 0;
+		font-size: 3rem;
+		font-weight: bold;
+	}
+
+	.productBrand {
+		margin-top: 0;
+		font-size: 1.25rem;
+		font-weight: bold;
+		color: $secondary-400;
+	}
+
+	.productDescription {
+		font-size: 1.25rem;
+	}
+
+	.priceInfo {
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+
+		.productPrice {
+			font-size: 2rem;
+			font-weight: bold;
+		}
+
+		.productDiscount {
+			background-color: $secondary-100;
+			color: $primary-100;
+			padding: 0.25rem;
+			border-radius: 1rem;
+		}
+	}
+
+	.productStock {
+		font-size: 1.25rem;
+	}
+}

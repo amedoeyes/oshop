@@ -1,0 +1,72 @@
+@use "../styles/variables.scss" as *;
+
+.homePage {
+	max-width: 70rem;
+	padding: 1rem;
+	margin: 0 auto;
+	display: flex;
+	flex-direction: column;
+	gap: 2rem;
+
+	.homePageCategories {
+		padding: 1rem;
+		display: flex;
+		justify-content: center;
+		flex-wrap: wrap;
+		gap: 1rem;
+
+		.homePageCategory {
+			color: $secondary-300;
+			width: 20rem;
+			height: 5rem;
+			padding: 1rem;
+			display: flex;
+			align-items: center;
+			justify-content: start;
+			flex-shrink: 0;
+			position: relative;
+			box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
+			border-radius: 1rem;
+			font-size: 1.75rem;
+			font-weight: bold;
+			overflow: hidden;
+
+			p {
+				margin: 0;
+			}
+
+			svg {
+				width: 5rem;
+				height: 5rem;
+				opacity: 0.25;
+				position: absolute;
+				top: 0;
+				right: 0;
+			}
+		}
+
+		@media screen and (max-width: 768px) {
+			justify-content: start;
+			flex-wrap: nowrap;
+			overflow-x: scroll;
+
+			.homePageCategory {
+				width: 4rem;
+				height: 4rem;
+				font-size: 1.5rem;
+				justify-content: center;
+
+				p {
+					display: none;
+				}
+
+				svg {
+					width: 3rem;
+					height: 3rem;
+					position: static;
+					opacity: 1;
+				}
+			}
+		}
+	}
+}

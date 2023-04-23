@@ -1,0 +1,30 @@
+@use "../styles/variables" as *;
+
+.notFound {
+	color: $primary-500;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	text-align: center;
+
+	h1 {
+		font-size: 8rem;
+		margin: 0;
+	}
+
+	h2 {
+		font-size: 4rem;
+		margin: 0;
+	}
+
+	@media screen and (max-width: 768px) {
+		h1 {
+			font-size: 6rem;
+		}
+
+		h2 {
+			font-size: 3rem;
+		}
+	}
+}
