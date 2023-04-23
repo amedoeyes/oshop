@@ -42,8 +42,12 @@ export const fetchProducts = createAsyncThunk<
 
 			products = products.filter(
 				(product) =>
-					product.title.toLowerCase().includes(search) ||
-					product.description.toLowerCase().includes(search)
+					product.title
+						.toLowerCase()
+						.includes(search.toLowerCase()) ||
+					product.description
+						.toLowerCase()
+						.includes(search.toLowerCase())
 			);
 		}
 

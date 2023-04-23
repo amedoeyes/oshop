@@ -15,7 +15,7 @@
 
 		@media screen and (max-width: 768px) {
 			grid-template-columns: 100%;
-			grid-template-rows: repeat(2, 100%);
+			grid-template-rows: repeat(2, auto);
 		}
 	}
 

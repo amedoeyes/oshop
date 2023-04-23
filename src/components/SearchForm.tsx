@@ -1,6 +1,6 @@
 import { Search } from "@mui/icons-material";
 import styles from "./SearchForm.module.scss";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "../app/store";
@@ -12,6 +12,7 @@ export default function SearchForm() {
 	const { options } = useSelector((state: RootState) => state.filterOptions);
 	const navigate = useNavigate();
 	const [localSearch, setLocalSearch] = useState(options.search || "");
+	const searchRef = useRef<HTMLInputElement>(null);
 
 	const handleChange = (e: React.ChangeEvent<HTMLInputElement>) =>
 		setLocalSearch(e.target.value);
@@ -19,71 +20,77 @@ export default function SearchForm() {
 	const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
 
+		if (window.innerWidth < 768)
+			searchRef.current?.classList.remove(styles.show);
+
 		const pathname = window.location.pathname;
 
 		if (pathname !== "/products") {
+			if (!localSearch) return;
 			navigate(`/products?search=${localSearch}`);
 			dispatch(setSearch(localSearch));
 			return;
 		}
 
 		dispatch(setSearch(localSearch));
-		searchParams.set("search", localSearch);
+		if (!localSearch) searchParams.delete("search");
+		else searchParams.set("search", localSearch);
 		setSearchParams(searchParams);
 	};
 
 	useEffect(() => {
 		if (window.innerWidth < 768) {
+			const handleClick = (e: MouseEvent) => {
+				if (
+					searchRef.current &&
+					!searchRef.current.contains(e.target as Node) &&
+					!(e.target as HTMLElement).closest(
+						`.${styles.mobileSearch}`
+					)
+				)
+					searchRef.current?.classList.remove(styles.show);
+			};
+
 			let prevScrollY = window.scrollY;
 			const handleScroll = () => {
-				if (prevScrollY < window.scrollY) {
-					document
-						.querySelector(`.${styles.searchFormContainer}`)
-						?.classList.remove(styles.show);
-				}
+				if (prevScrollY < window.scrollY)
+					searchRef.current?.classList.remove(styles.show);
 
 				prevScrollY = window.scrollY;
 			};
 
 			window.addEventListener("scroll", handleScroll);
+			document.addEventListener("click", handleClick);
 
 			return () => {
 				window.removeEventListener("scroll", handleScroll);
+				document.removeEventListener("click", handleClick);
 			};
 		}
 	}, []);
 
 	const toggleSearch = () => {
-		document
-			.querySelector(`.${styles.searchFormContainer}`)
-			?.classList.toggle(styles.show);
-
+		searchRef.current?.classList.toggle(styles.show);
 		(
 			document.querySelector(`.${styles.searchInput}`) as HTMLElement
 		).focus();
 	};
 
-	const handleBlur = () => {
-		document
-			.querySelector(`.${styles.searchFormContainer}`)
-			?.classList.remove(styles.show);
-	};
-
 	return (
 		<>
 			<div className={styles.mobileSearchContainer}>
-				<div className={styles.mobileSearch} onClick={toggleSearch}>
-					<Search />
-				</div>
+				<Search
+					className={styles.mobileSearch}
+					onClick={toggleSearch}
+				/>
 			</div>
-			<div className={styles.searchFormContainer}>
+			<div ref={searchRef} className={styles.searchFormContainer}>
 				<form className={styles.searchForm} onSubmit={handleSubmit}>
 					<input
 						className={styles.searchInput}
 						type="text"
 						value={localSearch}
 						onChange={handleChange}
-						onBlur={handleBlur}
 					/>
 					<button className={styles.searchButton}>
 						<Search />
