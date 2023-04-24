@@ -1,13 +1,8 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
+import basicSsl from "@vitejs/plugin-basic-ssl";
 
 // https://vitejs.dev/config/
 export default defineConfig({
-	server: {
-		https: {
-			key: "./certs/key.pem",
-			cert: "./certs/cert.pem",
-		},
-	},
-	plugins: [react()],
+	plugins: [react(), basicSsl()],
 });

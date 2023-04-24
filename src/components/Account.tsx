@@ -48,6 +48,7 @@ export default function Account() {
 					Welcome, {user!.nickname}
 				</p>
 			)}
+			<p className={styles.accountMessage}>Welcome, amedoeyesaaaa</p>
 			<div onClick={toggleBox}>
 				<img
 					src={isAuthenticated ? user!.picture : placeHolder}
