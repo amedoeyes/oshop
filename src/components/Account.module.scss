@@ -5,6 +5,16 @@
 	align-items: center;
 	gap: 1rem;
 
+	.accountMessage {
+		max-width: 7rem;
+		overflow: hidden;
+		text-overflow: ellipsis;
+
+		@media screen and (max-width: 950px) {
+			display: none;
+		}
+	}
+
 	.accountPicture {
 		width: 2.5rem;
 		border-radius: 100%;
@@ -56,12 +66,6 @@
 
 		@media screen and (max-width: 768px) {
 			width: 100%;
-		}
-	}
-
-	@media screen and (max-width: 768px) {
-		.accountMessage {
-			display: none;
 		}
 	}
 }
