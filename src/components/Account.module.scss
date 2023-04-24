@@ -6,9 +6,17 @@
 	gap: 1rem;
 
 	.accountMessage {
-		max-width: 7rem;
+		width: 13rem;
 		overflow: hidden;
 		text-overflow: ellipsis;
+		white-space: nowrap;
+
+		@media screen and (max-width: 1080px) {
+			width: 5rem;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			white-space: pre-wrap;
+		}
 
 		@media screen and (max-width: 950px) {
 			display: none;
