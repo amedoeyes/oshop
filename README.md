@@ -1,17 +1,16 @@
 # OShop
 
-![preview](preview.png)
+Full-Stack E-commerce Site.
 
-OShop is a React-based e-commerce front-end that uses TypeScript, Redux, React Router, Sass, Axios and Auth0 for authentication.
+## Stack
 
-Deployed Project: https://amedoeyes-oshop.vercel.app/
+Backend:
 
-## Installation
+- Laravel
+- MySQL
 
-To install and build the project, run the following command:
+Frontend:
 
-```
-npm i && npm run build
-```
-
-This will install all dependencies and build the project.
+- React
+- Redux
+- Material-UI
